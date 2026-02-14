@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script src="https://cdn.tailwindcss.com?plugins=forms"></script>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      colors: {
+        primary: "#0052cc",
+        emergency: "#dc2626"
+      },
+      fontFamily: {
+        display: ["Inter", "sans-serif"]
+      }
+    }
+  }
+}
+</script>
+
+<title>FixNow Dashboard</title>
+</head>
+
+<body class="bg-gray-100 font-display">
+
+<div class="max-w-6xl mx-auto min-h-screen bg-white shadow-xl">
+
+<!-- HEADER -->
+<header class="bg-primary text-white p-6">
+  <h1 class="text-2xl font-bold">FixNow - Available Workers</h1>
+  <p class="text-sm opacity-80">
+    Total Registered Workers: 
+    <span class="font-bold">{{ workers|length }}</span>
+  </p>
+</header>
+
+<!-- SERVICE CATEGORIES -->
+<div class="p-6">
+
+<h2 class="text-xl font-bold mb-4">Service Categories</h2>
+
+<div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
+
+<div class="bg-blue-50 hover:bg-blue-100 transition p-4 rounded-xl text-center shadow cursor-pointer">
+🔧 Plumber
+</div>
+
+<div class="bg-yellow-50 hover:bg-yellow-100 transition p-4 rounded-xl text-center shadow cursor-pointer">
+⚡ Electrician
+</div>
+
+<div class="bg-red-50 hover:bg-red-100 transition p-4 rounded-xl text-center shadow cursor-pointer">
+🐜 Pest Control
+</div>
+
+<div class="bg-green-50 hover:bg-green-100 transition p-4 rounded-xl text-center shadow cursor-pointer">
+🛠 Repair
+</div>
+
+</div>
+
+
+<!-- WORKER LIST -->
+<h2 class="text-xl font-bold mb-4">Recommended Workers</h2>
+
+<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+{% for worker in workers %}
+
+<div class="bg-white border rounded-2xl shadow-md hover:shadow-xl transition p-6">
+
+<div class="flex justify-between items-start mb-3">
+  <h3 class="text-lg font-bold text-primary">
+    {{ worker.name }}
+  </h3>
+  <span class="bg-green-100 text-green-700 text-xs px-2 py-1 rounded-full">
+    Available
+  </span>
+</div>
+
+<p class="text-gray-600 text-sm mb-1">
+  📞 <span class="font-medium">{{ worker.phone }}</span>
+</p>
+
+<p class="text-gray-600 text-sm mb-1">
+  🛠 Field: <span class="font-medium">{{ worker.work_type }}</span>
+</p>
+
+<p class="text-gray-600 text-sm mb-3">
+  ⭐ Experience: <span class="font-medium">{{ worker.experience }} Years</span>
+</p>
+
+<a href="{{ url_for('book_worker', worker_id=worker.id) }}">
+    <button class="w-full bg-primary text-white py-2 rounded-lg hover:bg-blue-700 transition">
+        Book Now
+    </button>
+</a>
+
+</div>
+
+{% endfor %}
+
+</div>
+
+</div>
+
+<!-- EMERGENCY SECTION -->
+<div class="bg-emergency text-white p-6 mt-10">
+  <div class="flex justify-between items-center max-w-6xl mx-auto">
+    <div>
+      <h2 class="text-xl font-bold">Emergency Repair</h2>
+      <p class="text-sm opacity-90">Worker arrives within 15-30 minutes</p>
+    </div>
+    <button class="bg-white text-red-600 px-4 py-2 rounded-lg font-semibold hover:bg-gray-100 transition">
+      Call Now
+    </button>
+  </div>
+</div>
+
+</div>
+
+</body>
+</html>

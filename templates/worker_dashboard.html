@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FixNow Worker Dashboard</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+
+<style>
+body {
+    font-family: 'Inter', sans-serif;
+}
+</style>
+
+</head>
+
+<body class="bg-gray-100">
+
+<div class="max-w-md mx-auto bg-white min-h-screen shadow-lg pb-20">
+
+    <!-- Header -->
+    <div class="flex justify-between items-center p-4 border-b">
+        <div>
+            <h2 class="text-xl font-bold">Hello, Worker!</h2>
+            <p class="text-sm text-gray-500">Electrician Specialist</p>
+        </div>
+
+        <div class="text-green-600 font-semibold text-sm">
+            ● Available
+        </div>
+    </div>
+
+    <!-- Performance Section -->
+    <div class="grid grid-cols-3 gap-3 p-4">
+
+        <div class="bg-blue-50 p-3 rounded-lg text-center">
+            <p class="text-xs text-gray-500">Rating</p>
+            <p class="text-lg font-bold text-blue-600">4.8 ⭐</p>
+        </div>
+
+        <div class="bg-green-50 p-3 rounded-lg text-center">
+            <p class="text-xs text-gray-500">Score</p>
+            <p class="text-lg font-bold text-green-600">92%</p>
+        </div>
+
+        <div class="bg-yellow-50 p-3 rounded-lg text-center">
+            <p class="text-xs text-gray-500">Jobs Done</p>
+            <p class="text-lg font-bold text-yellow-600">145</p>
+        </div>
+
+    </div>
+
+    <!-- Notification Section -->
+    <div class="px-4 mt-4">
+        <h3 class="text-lg font-bold mb-3">New Work Request</h3>
+
+        <!-- Request Card -->
+        <div class="bg-white border rounded-xl shadow p-4">
+
+            <h4 class="font-bold text-gray-800">Rahul - Fan Installation</h4>
+            <p class="text-sm text-gray-500 mt-1">Location: Kochi</p>
+            <p class="text-sm text-gray-500">Date: 25 June | Time: 10:00 AM</p>
+            <p class="text-sm text-gray-500">Payment: ₹1500</p>
+
+            <div class="flex gap-3 mt-4">
+                <button class="flex-1 bg-green-500 text-white py-2 rounded-lg hover:bg-green-600">
+                    Accept
+                </button>
+
+                <button class="flex-1 bg-red-500 text-white py-2 rounded-lg hover:bg-red-600">
+                    Reject
+                </button>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Current Active Job Template -->
+    <div class="px-4 mt-6">
+        <h3 class="text-lg font-bold mb-3">Active Job</h3>
+
+        <div class="bg-blue-50 border rounded-xl p-4">
+            <h4 class="font-semibold text-gray-800">Anjali - Switch Repair</h4>
+            <p class="text-sm text-gray-600">Address: MG Road, Kochi</p>
+            <p class="text-sm text-gray-600">Status: In Progress</p>
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>

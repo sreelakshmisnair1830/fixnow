@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Service Review & Feedback</title>
+
+<script src="https://cdn.tailwindcss.com?plugins=forms"></script>
+
+<script>
+tailwind.config = {
+    theme: {
+        extend: {
+            colors: {
+                primary: "#0052cc"
+            }
+        }
+    }
+}
+</script>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet"/>
+
+<style>
+body {
+    font-family: 'Inter', sans-serif;
+}
+</style>
+</head>
+
+<body class="bg-gray-100 min-h-screen flex justify-center items-center">
+
+<div class="relative w-full max-w-md bg-white shadow-xl rounded-xl overflow-hidden">
+
+<div class="p-6 text-center border-b">
+<h2 class="text-xl font-bold">Leave Feedback</h2>
+</div>
+
+<form method="POST" class="p-6 space-y-6">
+
+<!-- Rating -->
+<div class="text-center">
+<h4 class="font-bold mb-3">How was your service?</h4>
+
+<div class="flex justify-center gap-2">
+{% for i in range(1,6) %}
+<label>
+<input type="radio" name="rating" value="{{ i }}" class="hidden" required>
+<span class="text-3xl cursor-pointer text-yellow-400">★</span>
+</label>
+{% endfor %}
+</div>
+</div>
+
+<!-- Review -->
+<div>
+<label class="font-bold block mb-2">Write a review (optional)</label>
+<textarea name="review"
+class="w-full border rounded-lg p-3 focus:ring-2 focus:ring-primary"
+placeholder="Tell us about your experience..."
+rows="4"></textarea>
+</div>
+
+<!-- Recommend Toggle -->
+<div class="flex justify-between items-center bg-gray-50 p-4 rounded-lg">
+<div>
+<p class="font-bold">Recommend this worker?</p>
+<p class="text-sm text-gray-500">Would you hire again?</p>
+</div>
+<input type="checkbox" name="recommend" class="w-5 h-5">
+</div>
+
+<!-- Task Completed -->
+<div class="flex justify-between items-center bg-gray-50 p-4 rounded-lg">
+<div>
+<p class="font-bold">Task Completed?</p>
+<p class="text-sm text-gray-500">Confirm service finished</p>
+</div>
+<input type="checkbox" name="task_completed" class="w-5 h-5" required>
+</div>
+
+<button type="submit"
+class="w-full bg-primary text-white py-3 rounded-xl font-bold hover:bg-blue-700 transition">
+Submit Review
+</button>
+
+</form>
+</div>
+
+</body>
+</html>

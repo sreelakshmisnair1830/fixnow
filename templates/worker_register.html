@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script src="https://cdn.tailwindcss.com"></script>
+
+<title>Worker Register</title>
+</head>
+
+<body class="bg-gray-100 flex items-center justify-center min-h-screen">
+
+<div class="bg-white shadow-xl rounded-2xl p-8 w-full max-w-md">
+
+<h2 class="text-2xl font-bold text-center mb-6">Worker Registration</h2>
+
+<form method="POST" enctype="multipart/form-data" class="space-y-4">
+
+<input type="text" name="name" placeholder="Full Name"
+class="w-full border rounded-lg p-3" required>
+
+<input type="text" name="phone" placeholder="Phone Number"
+class="w-full border rounded-lg p-3" required>
+
+<select name="work_type" class="w-full border rounded-lg p-3" required>
+<option value="">Select Service</option>
+<option>Plumber</option>
+<option>Electrician</option>
+<option>AC Repair</option>
+<option>Pest Control</option>
+<option>Agricultural Pest</option>
+</select>
+
+<label class="text-sm">Upload Certificate</label>
+<input type="file" name="certificate"
+class="w-full border rounded-lg p-2" required>
+
+<label class="text-sm">Upload ID Proof</label>
+<input type="file" name="id_proof"
+class="w-full border rounded-lg p-2" required>
+
+<input type="number" name="experience" placeholder="Years of Experience"
+class="w-full border rounded-lg p-3" required>
+
+
+<input type="password" name="password" placeholder="Password"
+class="w-full border rounded-lg p-3" required>
+
+<button type="submit"
+class="w-full bg-blue-600 text-white py-3 rounded-lg hover:bg-blue-700">
+Register
+</button>
+
+</form>
+
+</div>
+
+</body>
+</html>
